@@ -12,3 +12,8 @@ build/
 
 # Windows thumbnail db
 Thumbs.db
+/.idea
+/*.iml
+/app/*.iml
+/*.iml
+/socketclient/*.iml
