@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * PollingHelper
- * AndroidSocketClient <com.vilyever.socketclient>
+ * AndroidSocketClient
  * Created by vilyever on 2016/4/27.
  * Feature:
  */

@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * SocketPacket
- * AndroidSocketClient <com.vilyever.vdsocketclient>
+ * AndroidSocketClient
  * Created by vilyever on 2015/9/15.
  * Feature:
  */

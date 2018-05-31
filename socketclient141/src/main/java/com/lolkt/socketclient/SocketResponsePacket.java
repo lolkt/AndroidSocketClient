@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * SocketResponsePacket
- * AndroidSocketClient <com.vilyever.socketclient>
+ * AndroidSocketClient
  * Created by vilyever on 2016/4/11.
  * Feature:
  */

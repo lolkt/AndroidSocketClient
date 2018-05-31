@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 /**
  * SocketInputReader
- * AndroidSocketClient <com.vilyever.socketclient.util>
+ * AndroidSocketClient
  * Created by vilyever on 2016/4/11.
  * Feature:
  */

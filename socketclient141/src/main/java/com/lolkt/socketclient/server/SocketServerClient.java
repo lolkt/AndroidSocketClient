@@ -8,7 +8,7 @@ import java.net.Socket;
 
 /**
  * SocketServerClient
- * AndroidSocketClient <com.vilyever.socketclient.server>
+ * AndroidSocketClient
  * Created by vilyever on 2016/3/23.
  * Feature:
  */

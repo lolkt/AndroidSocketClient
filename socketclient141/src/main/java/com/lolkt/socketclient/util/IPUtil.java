@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * IPUtil
- * AndroidSocketClient <com.vilyever.socketclient.util>
+ * AndroidSocketClient
  * Created by vilyever on 2016/3/30.
  * Feature:
  */

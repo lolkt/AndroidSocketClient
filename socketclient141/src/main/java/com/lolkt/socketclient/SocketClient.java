@@ -27,7 +27,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * SocketClient
- * AndroidSocketClient <com.vilyever.socketclient>
+ * AndroidSocketClient
  * Created by vilyever on 2016/3/18.
  * Feature:
  */
@@ -103,7 +103,7 @@ public class SocketClient {
      * 与{@link #send(byte[])} 相同，增加一个别名
      *
      * @param data
-     * @return
+     * @return SocketPacket
      */
     public SocketPacket sendBytes(byte[] data) {
         return send(data);
@@ -111,7 +111,7 @@ public class SocketClient {
 
     /**
      * @param data
-     * @return
+     * @return SocketPacket
      */
     public SocketPacket send(byte[] data) {
         if (!isConnected()) {
@@ -125,7 +125,7 @@ public class SocketClient {
     /**
      * 与{@link #send(String)} 相同，增加一个别名
      *
-     * @return
+     * @return SocketPacket
      */
     public SocketPacket sendString(String message) {
         return send(message);

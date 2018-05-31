@@ -2,7 +2,7 @@ package com.lolkt.socketclient.util;
 
 /**
  * CharsetNames
- * AndroidSocketClient <com.vilyever.socketclient.util>
+ * AndroidSocketClient
  * Created by vilyever on 2016/4/11.
  * Feature:
  */

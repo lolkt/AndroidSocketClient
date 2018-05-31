@@ -52,10 +52,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:23.1.1'
 
-    compile project(":socketclient141")
-//    compile 'com.github.vilyever:AndroidLogger:1.0.9'
-//    compile 'com.github.vilyever:AndroidJsonModel:1.2.0'
+    implementation project(":socketclient141")
+
 }

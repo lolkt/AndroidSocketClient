@@ -2,7 +2,7 @@ package com.lolkt.socketclient.util;
 
 /**
  * StringValidation
- * ESB <com.vilyever.base>
+ * ESB
  * Created by vilyever on 2016/2/23.
  * Feature:
  * 输入检查

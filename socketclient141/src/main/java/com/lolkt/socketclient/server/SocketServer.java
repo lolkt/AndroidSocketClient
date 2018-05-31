@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 /**
  * SocketServer
- * AndroidSocketClient <com.vilyever.socketclient.server>
+ * AndroidSocketClient
  * Created by vilyever on 2016/3/18.
  * Feature:
  */

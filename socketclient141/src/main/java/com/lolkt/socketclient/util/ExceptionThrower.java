@@ -2,7 +2,7 @@ package com.lolkt.socketclient.util;
 
 /**
  * ExceptionThrower
- * AndroidTempUtilities <com.vilyever.androidtemputilities.utilities.Exception>
+ * AndroidTempUtilities
  * Created by vilyever on 2016/3/18.
  * Feature:
  */

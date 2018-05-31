@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * BytesWrapper
- * AndroidSocketClient <com.vilyever.socketclient.util>
+ * AndroidSocketClient
  * Created by vilyever on 2016/4/27.
  * Feature:
  */
