@@ -2,10 +2,9 @@ package com.vilyever.androidsocketclient;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.vilyever.contextholder.ContextHolder;
-import com.vilyever.logger.Logger;
 import com.vilyever.socketclient.SocketClient;
 import com.vilyever.socketclient.helper.SocketClientDelegate;
 import com.vilyever.socketclient.helper.SocketClientReceivingDelegate;
@@ -67,19 +66,19 @@ public class TestServer {
             this.socketServer.registerSocketServerDelegate(new SocketServerDelegate() {
                 @Override
                 public void onServerBeginListen(SocketServer socketServer, int port) {
-                    Logger.log("onServer", "SocketServer: begin listen " + port);
+                   Log.i("onServer", "SocketServer: begin listen " + port);
 
                     getTestClient().connect();
                 }
 
                 @Override
                 public void onServerStopListen(SocketServer socketServer, int port) {
-                    Logger.log("onServer", "SocketServer: stop listen " + port);
+                   Log.i("onServer", "SocketServer: stop listen " + port);
                 }
 
                 @Override
                 public void onClientConnected(SocketServer socketServer, SocketServerClient socketServerClient) {
-                    Logger.log("onServer", "SocketServer: onClientConnected");
+                   Log.i("onServer", "SocketServer: onClientConnected");
 
                     self.setServerListeningSocketServerClient(socketServerClient);
                     socketServerClient.sendString("Server accepted");
@@ -87,7 +86,7 @@ public class TestServer {
 
                 @Override
                 public void onClientDisconnected(SocketServer socketServer, SocketServerClient socketServerClient) {
-                    Logger.log("onServer", "SocketServer: onClientDisconnected");
+                   Log.i("onServer", "SocketServer: onClientDisconnected");
 
                     self.setServerListeningSocketServerClient(null);
                 }
@@ -106,7 +105,7 @@ public class TestServer {
         this.serverListeningSocketServerClient.registerSocketClientDelegate(new SocketClientDelegate() {
             @Override
             public void onConnected(SocketClient client) {
-                Logger.log("onConnected", "SocketServerClient: onConnected");
+               Log.i("onConnected", "SocketServerClient: onConnected");
                 /**
                  * 此处永不回调
                  * 在{@link SocketServerDelegate#onClientConnected(SocketServer, SocketServerClient)} 处处理新client接入时的操作
@@ -115,12 +114,12 @@ public class TestServer {
 
             @Override
             public void onDisconnected(SocketClient client) {
-                Logger.log("onDisconnected", "SocketServerClient: onDisconnected");
+               Log.i("onDisconnected", "SocketServerClient: onDisconnected");
             }
 
             @Override
             public void onResponse(final SocketClient client, @NonNull SocketResponsePacket responsePacket) {
-                Logger.log("onResponse", "SocketServerClient: onResponse: " + responsePacket.hashCode() + " 【" + responsePacket.getMessage() + "】 " + " isHeartBeat: " + responsePacket.isHeartBeat() + " " + Arrays.toString(responsePacket.getData()));
+               Log.i("onResponse", "SocketServerClient: onResponse: " + responsePacket.hashCode() + " 【" + responsePacket.getMessage() + "】 " + " isHeartBeat: " + responsePacket.isHeartBeat() + " " + Arrays.toString(responsePacket.getData()));
                 if (responsePacket.isHeartBeat()) {
                     return;
                 }
@@ -151,44 +150,44 @@ public class TestServer {
 
             @Override
             public void onSendPacketBegin(SocketClient client, SocketPacket packet) {
-                Logger.log("onSend", "SocketServerClient: onSendPacketBegin: " + packet.hashCode() + "   " + Arrays.toString(packet.getData()));
+               Log.i("onSend", "SocketServerClient: onSendPacketBegin: " + packet.hashCode() + "   " + Arrays.toString(packet.getData()));
             }
 
             @Override
             public void onSendPacketCancel(SocketClient client, SocketPacket packet) {
-                Logger.log("onSend", "SocketServerClient: onSendPacketCancel: " + packet.hashCode());
+               Log.i("onSend", "SocketServerClient: onSendPacketCancel: " + packet.hashCode());
             }
 
             @Override
             public void onSendingPacketInProgress(SocketClient client, SocketPacket packet, float progress, int sendedLength) {
-                Logger.log("onSend", "SocketServerClient: onSendingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + sendedLength);
+               Log.i("onSend", "SocketServerClient: onSendingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + sendedLength);
             }
 
             @Override
             public void onSendPacketEnd(SocketClient client, SocketPacket packet) {
-                Logger.log("onSend", "SocketServerClient: onSendPacketEnd: " + packet.hashCode());
+               Log.i("onSend", "SocketServerClient: onSendPacketEnd: " + packet.hashCode());
             }
 
         });
         this.serverListeningSocketServerClient.registerSocketClientReceiveDelegate(new SocketClientReceivingDelegate() {
             @Override
             public void onReceivePacketBegin(SocketClient client, SocketResponsePacket packet) {
-                Logger.log("onReceive", "SocketServerClient: onReceivePacketBegin: " + packet.hashCode());
+               Log.i("onReceive", "SocketServerClient: onReceivePacketBegin: " + packet.hashCode());
             }
 
             @Override
             public void onReceivePacketEnd(SocketClient client, SocketResponsePacket packet) {
-                Logger.log("onReceive", "SocketServerClient: onReceivePacketEnd: " + packet.hashCode());
+               Log.i("onReceive", "SocketServerClient: onReceivePacketEnd: " + packet.hashCode());
             }
 
             @Override
             public void onReceivePacketCancel(SocketClient client, SocketResponsePacket packet) {
-                Logger.log("onReceive", "SocketServerClient: onReceivePacketCancel: " + packet.hashCode());
+               Log.i("onReceive", "SocketServerClient: onReceivePacketCancel: " + packet.hashCode());
             }
 
             @Override
             public void onReceivingPacketInProgress(SocketClient client, SocketResponsePacket packet, float progress, int receivedLength) {
-                Logger.log("onReceive", "SocketServerClient: onReceivingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + receivedLength);
+               Log.i("onReceive", "SocketServerClient: onReceivingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + receivedLength);
             }
         });
         return this;

@@ -31,7 +31,7 @@ publish{
     userOrg = 'amima'//bintray.com的用户名
     groupId = 'com.lolkt'//jcenter上的路径
     artifactId = 'AndroidSocketClient'//项目名称
-    publishVersion = '1.0.0'//版本号
+    publishVersion = '1.4.1'//版本号
     desc = 'socket client server简易封装'//描述，不重要
     website = siteUrl//项目主页
 }

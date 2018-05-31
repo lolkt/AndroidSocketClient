@@ -1,6 +1,5 @@
 package com.vilyever.androidsocketclient;
 
-import com.vilyever.contextholder.ContextHolder;
 
 import java.io.File;
 

@@ -2,8 +2,8 @@ package com.vilyever.androidsocketclient;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
-import com.vilyever.logger.Logger;
 import com.vilyever.socketclient.SocketClient;
 import com.vilyever.socketclient.helper.SocketClientDelegate;
 import com.vilyever.socketclient.helper.SocketClientReceivingDelegate;
@@ -26,16 +26,16 @@ import java.util.Date;
  */
 public class TestClient {
     final TestClient self = this;
-    
-    
+
+
     /* Constructors */
-    
-    
+
+
     /* Public Methods */
     public void connect() {
         self.getLocalSocketClient().connect();
     }
-    
+
     /* Properties */
     private SocketClient localSocketClient;
     public SocketClient getLocalSocketClient() {
@@ -61,7 +61,7 @@ public class TestClient {
             this.localSocketClient.registerSocketClientDelegate(new SocketClientDelegate() {
                 @Override
                 public void onConnected(SocketClient client) {
-                    Logger.log("onConnected", "SocketClient: onConnected");
+                    Log.i("onConnected", "SocketClient: onConnected");
 
                     if (client.getSocketPacketHelper().getReadStrategy() == SocketPacketHelper.ReadStrategy.Manually) {
                         client.readDataToLength(CharsetUtil.stringToData("Server accepted", CharsetUtil.UTF_8).length);
@@ -70,7 +70,7 @@ public class TestClient {
 
                 @Override
                 public void onDisconnected(final SocketClient client) {
-                    Logger.log("onDisconnected", "SocketClient: onDisconnected");
+                    Log.i("onDisconnected", "SocketClient: onDisconnected");
 
                     new AsyncTask<Void, Void, Void>() {
                         @Override
@@ -97,7 +97,7 @@ public class TestClient {
 
                 @Override
                 public void onResponse(final SocketClient client, @NonNull SocketResponsePacket responsePacket) {
-                    Logger.log("onResponse", "SocketClient: onResponse: " + responsePacket.hashCode() + " 【" + responsePacket.getMessage() + "】 " + " isHeartBeat: " + responsePacket.isHeartBeat() + " " + Arrays.toString(responsePacket.getData()));
+                    Log.i("onResponse", "SocketClient: onResponse: " + responsePacket.hashCode() + " 【" + responsePacket.getMessage() + "】 " + " isHeartBeat: " + responsePacket.isHeartBeat() + " " + Arrays.toString(responsePacket.getData()));
                     if (responsePacket.isHeartBeat()) {
                         return;
                     }
@@ -137,43 +137,43 @@ public class TestClient {
 
                 @Override
                 public void onSendPacketBegin(SocketClient client, SocketPacket packet) {
-                    Logger.log("onSend", "SocketClient: onSendPacketBegin: " + packet.hashCode() + "   " + Arrays.toString(packet.getData()));
+                    Log.i("onSend", "SocketClient: onSendPacketBegin: " + packet.hashCode() + "   " + Arrays.toString(packet.getData()));
                 }
 
                 @Override
                 public void onSendPacketCancel(SocketClient client, SocketPacket packet) {
-                    Logger.log("onSend", "SocketClient: onSendPacketCancel: " + packet.hashCode());
+                    Log.i("onSend", "SocketClient: onSendPacketCancel: " + packet.hashCode());
                 }
 
                 @Override
                 public void onSendingPacketInProgress(SocketClient client, SocketPacket packet, float progress, int sendedLength) {
-                    Logger.log("onSend", "SocketClient: onSendingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + sendedLength);
+                    Log.i("onSend", "SocketClient: onSendingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + sendedLength);
                 }
 
                 @Override
                 public void onSendPacketEnd(SocketClient client, SocketPacket packet) {
-                    Logger.log("onSend", "SocketClient: onSendPacketEnd: " + packet.hashCode());
+                    Log.i("onSend", "SocketClient: onSendPacketEnd: " + packet.hashCode());
                 }
             });
             this.localSocketClient.registerSocketClientReceiveDelegate(new SocketClientReceivingDelegate() {
                 @Override
                 public void onReceivePacketBegin(SocketClient client, SocketResponsePacket packet) {
-                    Logger.log("onReceive", "SocketClient: onReceivePacketBegin: " + packet.hashCode());
+                    Log.i("onReceive", "SocketClient: onReceivePacketBegin: " + packet.hashCode());
                 }
 
                 @Override
                 public void onReceivePacketEnd(SocketClient client, SocketResponsePacket packet) {
-                    Logger.log("onReceive", "SocketClient: onReceivePacketEnd: " + packet.hashCode());
+                    Log.i("onReceive", "SocketClient: onReceivePacketEnd: " + packet.hashCode());
                 }
 
                 @Override
                 public void onReceivePacketCancel(SocketClient client, SocketResponsePacket packet) {
-                    Logger.log("onReceive", "SocketClient: onReceivePacketCancel: " + packet.hashCode());
+                    Log.i("onReceive", "SocketClient: onReceivePacketCancel: " + packet.hashCode());
                 }
 
                 @Override
                 public void onReceivingPacketInProgress(SocketClient client, SocketResponsePacket packet, float progress, int receivedLength) {
-                    Logger.log("onReceive", "SocketClient: onReceivingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + receivedLength);
+                    Log.i("onReceive", "SocketClient: onReceivingPacketInProgress: " + packet.hashCode() + " : " + progress + " : " + receivedLength);
                 }
             });
         }
