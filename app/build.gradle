@@ -1,20 +1,52 @@
 apply plugin: 'com.android.application'
-
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "com.vilyever.androidsocketclient"
+        applicationId "com.lolkt.androidsocketclient"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+
+
+
     buildTypes {
+        debug {
+            buildConfigField "String", "RemoteIP", "\"192.168.4.1\""
+            buildConfigField "int", "RemotePort", "5025"
+            buildConfigField "String", "UPDATE_SERVICE", "\"http://10.0.0.236:8501/\""
+            buildConfigField "String", "SERVER_IP", "\"10.0.0.198\""
+            buildConfigField "String", "SERVER_PORT", "\"6082\""
+        }
+
         release {
+            buildConfigField "String", "RemoteIP", "\"192.168.4.1\""
+            buildConfigField "int", "RemotePort", "5025"
+            buildConfigField "String", "UPDATE_SERVICE", "\"http://app2.caiyingkeji.vizhuo.cn/\""
+            buildConfigField "String", "SERVER_IP", "\"118.190.77.83\""
+            buildConfigField "String", "SERVER_PORT", "\"7084\""
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "lotterybox2_v${variant.versionName}_${releaseTime()}_${variant.name}.apk"
+                }
+            }
+
         }
     }
 }
@@ -23,7 +55,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.1.1'
 
-    compile project(":socketclient")
+    compile project(":socketclient141")
 //    compile 'com.github.vilyever:AndroidLogger:1.0.9'
 //    compile 'com.github.vilyever:AndroidJsonModel:1.2.0'
 }
