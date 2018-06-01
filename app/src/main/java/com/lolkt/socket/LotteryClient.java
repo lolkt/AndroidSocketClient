@@ -5,10 +5,11 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.lolkt.androidsocketclient.BuildConfig;
 import com.lolkt.socketclient.SocketClient;
 import com.lolkt.socketclient.SocketResponsePacket;
 import com.lolkt.socketclient.util.CharsetNames;
-import com.vilyever.androidsocketclient.BuildConfig;
+
 
 import java.util.ArrayList;
 import java.util.List;

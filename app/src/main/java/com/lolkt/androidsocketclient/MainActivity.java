@@ -1,20 +1,14 @@
 package com.lolkt.androidsocketclient;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ImageView;
 
 import com.lolkt.socket.LotteryClient;
 import com.lolkt.socket.SocketMessageUtils;
 import com.lolkt.socketclient.SocketClient;
-import com.vilyever.androidsocketclient.BuildConfig;
-import com.vilyever.androidsocketclient.R;
 
-import java.nio.ByteBuffer;
-import java.util.logging.Logger;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     final MainActivity self = this;
 
 
